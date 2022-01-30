@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Yatra+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  box-sizing: border-box;
+  background-color:rgb(13, 51, 51);
+  font-family: "Montserrat";
+}
+
+
+.main{
+  margin-top: 0.5rem;
+}
+
+  .event-page {
+    font-size: 6vh;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px black; 
+    text-transform: uppercase;
+    font-family: Wallpoet, sans-serif;
+    color: white !important;
+    text-shadow: -1px -1.5px rgb(56, 175, 175),
+    1.5px 3px black;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+@keyframes flip {
+  50% {
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.8);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
+    animation-timing-function: ease-in;
+  }
+}
+
+@media (max-width: 1080px) {
+ 
+}
+
+#players {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  width: 60%;
+  text-align: center;
+}
+
+#players td,
+#players th {
+  border: 1px solid #ddd;
+  padding: 3px;
+  background-color: aliceblue !important;
+  font-size: large;
+}
+
+#players tr:nth-child(even) {
+  background-color: #f2f2f2 !important;
+}
+
+#players th {
+  text-align: center;
+  background-color: rgb(13, 51, 51)!important;
+  color: white;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  #players {
+    margin-top: 1.5rem;
+  }
+  .main{
+    margin-top: 0rem;
+  }
+  .event-page{
+    display: none;
+  }
+  
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #players {
+    margin-top: 1.5rem;
+  }
+
+}
+
+
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #players {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+  #players {
+    margin-top: 1.5rem;
+  }
+}

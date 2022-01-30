@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clueminati | Rules</title>
+     <link rel="icon" href="../image/template/logo.png" type="image/png">
+      <link rel="stylesheet" href="../css/rules.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">
+      <a href="/" class="navbar-brand animated flip"><img src="../image/template/logo.png" alt=""></a>
+    </div>
+     
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+           <li><a href="/rules" >Rules</a></li>
+        <li><a href="/leaderboard" >Leaderboard</a></li>
+        <li><a href="/contact"  >Contact </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="main">
+    <h1 class="event-page"> RULES </h1>
+   <ol>
+        <li>Any attempt of attack on site is intolerable. The player will be blacklisted and will not be able to participate in any other events.</li><br>
+        <li>The image will give you good idea about the answer; try to use the internet. If you still don't get the answer, use clues.</li><br>
+        <li>You have 1000 coins in the beginning; use them wisely.</li><br>
+        <li>There will be three clues for each level. To unlock each Clue, you need to use coins: <br>
+            <ul type="disc">
+              <br>
+                <li>For 1 <sup>st</sup> Clue - 10 coins</li>
+                <li>For 2 <sup>nd</sup> Clue - 15 coins</li>
+                <li>For 3 <sup>rd</sup> Clue - 20 coins</li>
+            </ul>
+            <br>
+        </li>
+        <li>To win this event, you have to be very fast; 
+          <ul type="disc">
+              <br>
+               Whoever submits the answer first will get 200 coins, subsequent particpants will get 10 coins lesser than the previous participant. <br>
+            If you submit after 15 correct submissions by other participants, you will get 50 coins only
+                {{!-- <li> For level II <br> whoever submits the answer first will get 300 coins, subsequent particpants will get 5 coins lesser than the previous participant. <br>
+            If you submit after 40 correct submissions by other participants, you will get 100 coins only</li>
+                 <li> For level III <br> whoever submits the answer first will get 400 coins, subsequent particpants will get 2 coins lesser than the previous participant. <br>
+            If you submit after 125 correct submissions by other participants, you will get 150 coins only</li>
+            </ul> --}}
+    
+          </ul>
+        <br>
+        <li>Use only lowercase alphabets, for eg. Type "A.P.J Abdul Kalam" as "apjabdulkalam" (without quotes) </li><br>
+    </ol>
+    </div>
+
+    <script>
+      const toggleButton = document.getElementsByClassName('toggle-button')[0]
+      const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+      toggleButton.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active')
+      })
+    </script>
+</body>
+</html>
