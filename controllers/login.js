@@ -75,8 +75,8 @@ exports.submit = async (request, response, next) => {
       if (request.body.guess === check.rows[0].answer) {
         if (check.rows[0].id < 31) {
           const selectl = await selectflag(request.session.rollno);
-          if (selectl.rows[0].flag < 15 && selectl.rows[0].flag >= 1)
-            score = 200 - selectl.rows[0].flag * 10;
+          if (selectl.rows[0].flag < 30 && selectl.rows[0].flag >= 1)
+            score = 200 - selectl.rows[0].flag * 5;
           else if (selectl.rows[0].flag == 0) score = 200;
           else score = 50;
           const updatel = await updateflag(request.session.rollno);
