@@ -3,38 +3,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
 body {
   font-family: "Montserrat";
-  background-color:rgb(13, 51, 51);
+  background-color: rgb(13, 51, 51);
 }
 
-
-.main{
+.main {
   margin-top: -5rem;
 }
 
-  .event-page {
-    font-size: 6vh;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px black; 
-    text-transform: uppercase;
-    font-family: Wallpoet, sans-serif;
-    color: white !important;
-    text-shadow: -1px -1.5px rgb(56, 175, 175),
-    1.5px 3px black;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-ol{
-    font-size: 2.5vh;
-    margin-left: 2vw; 
-    color: white;
+.event-page {
+  font-size: 6vh;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px black;
+  text-transform: uppercase;
+  font-family: Wallpoet, sans-serif;
+  color: white !important;
+  text-shadow: -1px -1.5px rgb(56, 175, 175), 1.5px 3px black;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+ol {
+  font-size: 2.5vh;
+  margin-left: 2vw;
+  color: white;
 }
 
-ul{
-    font-size: 2.5vh;
+ul {
+  font-size: 2.5vh;
 }
-
-
-

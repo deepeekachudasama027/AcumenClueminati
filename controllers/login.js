@@ -4,7 +4,6 @@ const {
   mainpage,
   checkanswer,
   correctanswer,
-  updatefirstanswer,
   updatewronghit,
   updatecurhint,
   selecthint,
@@ -46,9 +45,10 @@ exports.getdata = async (request, response, next) => {
   try {
     if (request.session.loggedIn) {
       const selecttotal_hit = await selecttotalhit(request.session.rollno);
-      if (selecttotal_hit.rows[0].total_hit >= 50) {
-        request.session.loggedIn = false;
-        response.render("challenges/thanks");
+      if (selecttotal_hit.rows[0].total_hit >= 10) {
+        const score = await coins(request.session.rollno);
+        if (score)
+          response.render("challenges/thanks", { coins: score.rows[0].score });
       } else {
         const getmain = await mainpage(request.session.rollno);
         response.render("layout/main", {
@@ -64,7 +64,7 @@ exports.getdata = async (request, response, next) => {
       });
     }
   } catch (err) {
-    console;
+    console.log(err);
   }
 };
 
@@ -75,50 +75,30 @@ exports.submit = async (request, response, next) => {
       if (request.body.guess === check.rows[0].answer) {
         if (check.rows[0].id < 31) {
           const selectl = await selectflag(request.session.rollno);
-
-          if (selectl.rows[0].flag < 15 && selectl.rows[0].flag >= 1) {
+          if (selectl.rows[0].flag < 15 && selectl.rows[0].flag >= 1)
             score = 200 - selectl.rows[0].flag * 10;
-            const updatel = await updateflag(request.session.rollno);
-            const updatescore = await correctanswer(
-              score,
-              request.session.rollno
-            );
-            const selecttotal_hit = await selecttotalhit(
-              request.session.rollno
-            );
-            if (selecttotal_hit.rows[0].total_hit >= 50) {
-              request.session.loggedIn = false;
-              response.render("challenges/thanks");
-            } else {
-              const getmain = await mainpage(request.session.rollno);
-              response.render("layout/main", {
-                score: getmain.rows[0].score,
-                question: getmain.rows[0].question,
-                id: getmain.rows[0].id,
-                rollno: getmain.rows[0].rollno,
+          else if (selectl.rows[0].flag == 0) score = 200;
+          else score = 50;
+          const updatel = await updateflag(request.session.rollno);
+          const updatescore = await correctanswer(
+            score,
+            request.session.rollno
+          );
+          const selecttotal_hit = await selecttotalhit(request.session.rollno);
+          if (selecttotal_hit.rows[0].total_hit >= 10) {
+            const score = await coins(request.session.rollno);
+            if (score)
+              response.render("challenges/thanks", {
+                coins: score.rows[0].score,
               });
-            }
-          } else if (selectl.rows[0].flag == 0) {
-            const updatel = await updateflag(request.session.rollno);
-            const updatefirst_login = await updatefirstanswer(
-              200,
-              request.session.rollno
-            );
-            const selecttotal_hit = await selecttotalhit(
-              request.session.rollno
-            );
-            if (selecttotal_hit.rows[0].total_hit >= 30) {
-              request.session.loggedIn = false;
-              response.render("challenges/thanks");
-            } else {
-              const getmain = await mainpage(request.session.rollno);
-              response.render("layout/main", {
-                score: getmain.rows[0].score,
-                question: getmain.rows[0].question,
-                id: getmain.rows[0].id,
-                rollno: getmain.rows[0].rollno,
-              });
-            }
+          } else {
+            const getmain = await mainpage(request.session.rollno);
+            response.render("layout/main", {
+              score: getmain.rows[0].score,
+              question: getmain.rows[0].question,
+              id: getmain.rows[0].id,
+              rollno: getmain.rows[0].rollno,
+            });
           }
         }
       } else {
@@ -133,11 +113,11 @@ exports.submit = async (request, response, next) => {
       }
     } else {
       response.render("challenges/login", {
-        message: "Login First!",
+        message: "",
       });
     }
   } catch (err) {
-    console;
+    console.log(err);
   }
 };
 
@@ -148,40 +128,33 @@ exports.hint = async (request, response, next) => {
       const gethint = await selecthint(request.session.rollno);
       if (gethint.rows[0].curhint === 1) {
         const h1 = await deducthint1(request.session.rollno);
-        
-          const hint = {
-            hint1: gethint.rows[0].hint1,
-            hint2: " ",
-            hint3: " ",
-            message: "you have used your 10 Coins! ",
-          };
-          response.send(hint);
-        
-        
+
+        const hint = {
+          hint1: gethint.rows[0].hint1,
+          hint2: " ",
+          hint3: " ",
+          message: "you have used your 10 Coins! ",
+        };
+        response.send(hint);
       } else if (gethint.rows[0].curhint === 2) {
         const h2 = await deducthint2(request.session.rollno);
-          const hint = {
-            hint1: gethint.rows[0].hint1,
-            hint2: gethint.rows[0].hint2,
-            hint3: " ",
-            message: "you have used your 15 Coins! ",
-          };
-          response.send(hint);
-        
-      
+        const hint = {
+          hint1: gethint.rows[0].hint1,
+          hint2: gethint.rows[0].hint2,
+          hint3: " ",
+          message: "you have used your 15 Coins! ",
+        };
+        response.send(hint);
       } else if (gethint.rows[0].curhint === 3) {
         const h3 = await deducthint3(request.session.rollno);
-        
-        
-          const hint = {
-            hint1: gethint.rows[0].hint1,
-            hint2: gethint.rows[0].hint2,
-            hint3: gethint.rows[0].hint3,
-            message: "you have used your 20 Coins! ",
-          };
-          response.send(hint);
-        
-       
+
+        const hint = {
+          hint1: gethint.rows[0].hint1,
+          hint2: gethint.rows[0].hint2,
+          hint3: gethint.rows[0].hint3,
+          message: "you have used your 20 Coins! ",
+        };
+        response.send(hint);
       } else if (gethint.rows[0].curhint > 3) {
         const hint = {
           hint1: gethint.rows[0].hint1,
@@ -190,7 +163,6 @@ exports.hint = async (request, response, next) => {
           message: " ",
         };
         response.send(hint);
-      
       }
     } else {
       response.render("challenges/login", {
@@ -198,40 +170,39 @@ exports.hint = async (request, response, next) => {
       });
     }
   } catch (err) {
-    console;
+    console.log(err);
   }
 };
 
-exports.coins=async (request, response, next) => {
+exports.coins = async (request, response, next) => {
   try {
     if (request.session.loggedIn) {
-
-    const score = await coins(request.session.rollno);
-    if(score){
-      const coins = {
-        coins:score.rows[0].score
+      const score = await coins(request.session.rollno);
+      if (score) {
+        const coins = {
+          coins: score.rows[0].score,
+        };
+        response.send(coins);
       }
-      response.send(coins);
+    } else {
+      response.render("challenges/login", {
+        message: "Login First!",
+      });
     }
-  }  else {
-    response.render("challenges/login", {
-      message: "Login First!",
-    });
-  }
   } catch (err) {
-    console;
+    console.log(err);
   }
 };
-
 
 exports.scoreboard = async (request, response, next) => {
   try {
     const ld = await leaderboard();
     response.render("challenges/leaderboard", { data: ld.rows });
   } catch (err) {
-    console;
+    console.log(err);
   }
 };
+
 
 exports.logout = async (request, response, next) => {
   try {
@@ -240,6 +211,6 @@ exports.logout = async (request, response, next) => {
       message: "Logout Successful!",
     });
   } catch (err) {
-    console;
+    console.log(err);
   }
 };

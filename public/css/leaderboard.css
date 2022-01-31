@@ -4,30 +4,28 @@
 
 * {
   box-sizing: border-box;
-  background-color:rgb(13, 51, 51);
+  background-color: rgb(13, 51, 51);
   font-family: "Montserrat";
 }
 
-
-.main{
+.main {
   margin-top: 0.5rem;
 }
 
-  .event-page {
-    font-size: 6vh;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px black; 
-    text-transform: uppercase;
-    font-family: Wallpoet, sans-serif;
-    color: white !important;
-    text-shadow: -1px -1.5px rgb(56, 175, 175),
-    1.5px 3px black;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.event-page {
+  font-size: 6vh;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px black;
+  text-transform: uppercase;
+  font-family: Wallpoet, sans-serif;
+  color: white !important;
+  text-shadow: -1px -1.5px rgb(56, 175, 175), 1.5px 3px black;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 @keyframes flip {
   50% {
@@ -45,7 +43,6 @@
 }
 
 @media (max-width: 1080px) {
- 
 }
 
 #players {
@@ -69,7 +66,7 @@
 
 #players th {
   text-align: center;
-  background-color: rgb(13, 51, 51)!important;
+  background-color: rgb(13, 51, 51) !important;
   color: white;
 }
 
@@ -78,13 +75,12 @@
   #players {
     margin-top: 1.5rem;
   }
-  .main{
+  .main {
     margin-top: 0rem;
   }
-  .event-page{
+  .event-page {
     display: none;
   }
-  
 }
 
 /* Media Query for Tablets Ipads portrait mode */
@@ -92,10 +88,7 @@
   #players {
     margin-top: 1.5rem;
   }
-
 }
-
-
 
 /* Media Query for Laptops and Desktops */
 @media (min-width: 1025px) and (max-width: 1280px) {

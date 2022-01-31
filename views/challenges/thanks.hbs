@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clueminati | Thank u</title>
-<link rel="icon" href="../image/template/logo.png" type="image/png">
+    <title>Clueminati | Thank you</title>
+    <link rel="icon" href="../image/template/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/navbar.css">
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Yatra+One&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
         @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-        *{
-             font-family: "Montserrat";
+
+        * {
+            font-family: "Montserrat";
         }
+
         body {
-     background-color:rgb(13, 51, 51);
-  );
+            background-color: rgb(13, 51, 51);
+            );
         }
 
         .image {
@@ -23,6 +28,36 @@
             position: relative;
             display: block;
             margin: 0 auto;
+        }
+
+        .main {
+            margin-top: 5rem;
+        }
+
+        .event-page {
+            font-size: 10vh;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px black;
+            text-transform: uppercase;
+            font-family: Wallpoet, sans-serif;
+            color: white !important;
+            text-shadow: -1px -1.5px rgb(56, 175, 175),
+                1.5px 3px black;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #Thanks {
+            color: white;
+            font-size: 5vh;
+        }
+
+        #coins {
+            color: white;
+            font-size: 4vh;
         }
     </style>
 </head>
@@ -46,22 +81,30 @@
         <div class="navbar-links">
             <ul>
 
-                <li><a href="/rules" >Rules</a></li>
-                <li><a href="/leaderboard" >Leaderboard</a></li>
-                <li><a href="/contact" >Contact </a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
+                <li><a href="/contact">Contact </a></li>
             </ul>
         </div>
     </nav>
 
-    <div><img src="../image/template/thanks.jpg" alt="" class="image"></div>
-        <script>
-      const toggleButton = document.getElementsByClassName('toggle-button')[0]
-      const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+    <div class="main">
+        <h1 class="event-page"> Game Over </h1>
+        <center>
+            <h2 id="Thanks"> Thank you for playing Clueminati </h2>
+            <h3 id="coins"> Total Coins left: {{coins}}</h3>
+        </center>
 
-      toggleButton.addEventListener('click', () => {
-        navbarLinks.classList.toggle('active')
-      })
+    </div>
+    <script>
+        const toggleButton = document.getElementsByClassName('toggle-button')[0]
+        const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active')
+        })
     </script>
-    
+
 </body>
+
 </html>

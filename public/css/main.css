@@ -9,16 +9,7 @@
 }
 
 body {
-  /* animation: color-me-in 10s infinite;
-  background-image: linear-gradient(
-    to right,
-    #b813af,
-    #a70d92,
-    #7c0a76,
-    #52064e,
-    #270225
-  ); */
-  background-color:rgb(13, 51, 51);
+  background-color: rgb(13, 51, 51);
 }
 
 .navbar {
@@ -83,11 +74,6 @@ body {
   padding: 1rem;
   font-size: 20px;
 }
-
-/* .navbar-links :hover {
-  color: ;
-  transition: all 0.3s ease;
-} */
 
 .toggle-button {
   position: absolute;
@@ -155,18 +141,16 @@ body {
     text-transform: uppercase;
     font-family: Wallpoet, sans-serif;
     color: white !important;
-    text-shadow: -1px -1.5px rgb(56, 175, 175),
-    1.5px 3px black;
+    text-shadow: -1px -1.5px rgb(56, 175, 175), 1.5px 3px black;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2.5vh !important;
     font-weight: bolder;
-    /* color: rgb(194, 191, 191) !important; */
   }
 
-  .image{
-    width:30vw !important;
+  .image {
+    width: 30vw !important;
     height: 30vh !important;
     margin-bottom: 2rem !important;
   }
@@ -206,50 +190,26 @@ body {
   text-transform: uppercase;
   font-family: Wallpoet, sans-serif;
   color: white !important;
-  text-shadow: -1px -1.5px rgb(56, 175, 175),
-    1.5px 3px black;
+  text-shadow: -1px -1.5px rgb(56, 175, 175), 1.5px 3px black;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 6vh;
   font-weight: bolder;
-  /* color: rgb(194, 191, 191) !important; */
 }
 
-.iconify { 
+.iconify {
   color: yellow;
   width: 30px;
   height: 40px;
-  /* float: right; */
-  /* margin-top: 2rem;
-  margin-right: 1vw; */
-  /* border: thin; */
-  /* color: yellow; */
-  /* padding: 1rem 1rem; */
-  /* text-align: center;
-  text-decoration: none; */
-  /* display: inline-block; */
-  /* font-size: 0.8em; */
-  /* cursor: pointer; */
   background-color: rgb(7, 5, 5);
-   /* margin-left: 2vw; */
- 
   margin: 10px;
 }
 
 .score {
-  /* color: white; */
-  /* font-weight: bold;
-  font-size: x-large; */
   float: right;
-  /* margin-top: 2rem; */
   margin-right: 1.5vw;
   border: thin;
-  /* padding: 1rem 1rem; */
-  /* text-align: center;
-  text-decoration: none; */
-  /* display: inline-block; */
-  /* font-size: 1em; */
   cursor: pointer;
   background-color: rgb(7, 5, 5);
   border-radius: 0.8em;
@@ -272,7 +232,6 @@ body {
   width: 30vw;
   padding: 10px 15px;
   background-color: white;
-  /* border-radius: 15px 0px 15px 0px; */
   border-radius: 12px 12px 12px 12px;
   border-top: black;
   border-bottom: 2px solid black;
@@ -293,26 +252,19 @@ body {
   font-size: 2vh;
   padding: 10px;
   border-radius: 2px;
-  /* transition-duration: 0.4s; */
   cursor: pointer;
-  background-color: darkgreen;
-  border: darkgreen;
+  background-color: lightgreen;
+  border: lightgreen;
   border-radius: 8px 8px 8px 8px;
   width: 20vh;
   position: relative;
   display: block;
   margin: 0 auto;
 }
-/* .btn1:hover {
-  background-color: rgb(48, 240, 48);
-  color: white;
-} */
 
 @media (max-width: 480px) {
   .challenge {
-    /* margin-left: -0.5rem;
-    margin-top: 2rem; */
-    font-size: 2.3vh;
+    font-size: 2.5vh;
   }
 }
 
@@ -320,7 +272,7 @@ body {
   .challenge {
     margin-left: -0.5rem;
     margin-top: 2rem;
-    font-size: 2.3vh;
+    font-size: 2.5vh;
   }
   .image {
     width: 80vw !important;
@@ -332,13 +284,4 @@ body {
     width: 22vw;
     text-align: center;
   }
-  /* .score {
-    margin-top: 1rem;
-    font-size: medium;
-  }
-  .iconify {
-    width: 30px;
-    height: 30px;
-    margin-top: 1rem;
-  } */
 }

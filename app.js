@@ -3,18 +3,18 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const session = require("express-session");
 const compression = require("compression");
-const errorHandler = require('./middleware/error');
+const errorHandler = require("./middleware/error");
 
 const router = require("./router/routes");
 
 const app = express();
-app.set('trust proxy',1)
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: "Keep it secret",
     name: "uniqueSessionID",
     resave: true,
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 
@@ -48,5 +48,5 @@ app.use(cors());
 app.use(router);
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log("Welcome to INFOTREK.....");
+  console.log("Welcome to ACUMEN.....");
 });

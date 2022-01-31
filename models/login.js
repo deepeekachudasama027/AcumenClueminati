@@ -210,8 +210,6 @@ pool.query(
   }
 );
 
-
-
 exports.selectrollno = (rollno, password, callback) => {
   return pool.query(
     "select rollno from  login_clueminati WHERE rollno = $1 AND password =$2",
@@ -268,14 +266,6 @@ exports.updateflag = (rollno, callback) => {
   );
 };
 
-exports.updatefirstanswer = (score, rollno, callback) => {
-  return pool.query(
-    " UPDATE login_clueminati SET cur_id = cur_id+1,score=score+$1,total_hit = total_hit+1,wrong_hit=0,curhint=0 from question_clueminati where question_clueminati.id=login_clueminati.cur_id and rollno =$2",
-    [score, rollno],
-    callback
-  );
-};
-
 exports.updatewronghit = (rollno, callback) => {
   return pool.query(
     "UPDATE login_clueminati SET wrong_hit = wrong_hit+1 from question_clueminati where rollno =$1 and question_clueminati.id=login_clueminati.cur_id",
@@ -324,7 +314,7 @@ exports.deducthint3 = (rollno, callback) => {
   );
 };
 
-exports.coins = (rollno,callback)=>{
+exports.coins = (rollno, callback) => {
   return pool.query(
     "select score FROM login_clueminati where rollno=$1",
     [rollno],
@@ -338,4 +328,3 @@ exports.leaderboard = (callback) => {
     callback
   );
 };
-
