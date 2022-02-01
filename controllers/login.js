@@ -45,7 +45,7 @@ exports.getdata = async (request, response, next) => {
   try {
     if (request.session.loggedIn) {
       const selecttotal_hit = await selecttotalhit(request.session.rollno);
-      if (selecttotal_hit.rows[0].total_hit >= 10) {
+      if (selecttotal_hit.rows[0].total_hit >= 30) {
         const score = await coins(request.session.rollno);
         if (score)
           response.render("challenges/thanks", { coins: score.rows[0].score });
@@ -85,7 +85,7 @@ exports.submit = async (request, response, next) => {
             request.session.rollno
           );
           const selecttotal_hit = await selecttotalhit(request.session.rollno);
-          if (selecttotal_hit.rows[0].total_hit >= 10) {
+          if (selecttotal_hit.rows[0].total_hit >= 30) {
             const score = await coins(request.session.rollno);
             if (score)
               response.render("challenges/thanks", {
