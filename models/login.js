@@ -2,12 +2,12 @@ var pool = require("../controllers/db");
 
 // pool.query("DROP TABLE question_clueminati");
 
-pool.query(
-  "CREATE TABLE IF NOT EXISTS question_clueminati (question varchar (150),id int PRIMARY KEY,answer varchar (150), hint1 varchar (300),hint2 varchar (300),hint3 varchar (300) , flag int default 0)",
- (err, result) =>{
-   if (err) throw err;
- }
-);
+// pool.query(
+//   "CREATE TABLE IF NOT EXISTS question_clueminati (question varchar (150),id int PRIMARY KEY,answer varchar (150), hint1 varchar (300),hint2 varchar (300),hint3 varchar (300) , flag int default 0)",
+//  (err, result) =>{
+//    if (err) throw err;
+//  }
+// );
 
 
 pool.query(
